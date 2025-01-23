@@ -145,9 +145,8 @@ LOGOUT_REDIRECT_URL = '/registration/login/'  # Redirect to the client login pag
 
 
 # Deployment config
-from django.core.wsgi import get_wsgi_application
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todo_app.settings')
+# from django.core.wsgi import get_wsgi_application
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'todo_app.settings')
 
-application = get_wsgi_application()
+# application = get_wsgi_application()
 
-app = application
