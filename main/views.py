@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Todo
 from .forms import TodoForm, UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.contrib.auth import authenticate, login as auth_login
 
 
@@ -35,6 +35,10 @@ def login_view(request):
     else:
         form = AuthenticationForm()  # Show the login form if GET request
     return render(request, 'registration/login.html', {'form': form})
+
+def custom_logout(request):
+    logout(request)  # Logout the user
+    return redirect('/')  # Redirect to the homepage or any other page
 
 @login_required
 def list_todos(request):
