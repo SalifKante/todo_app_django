@@ -1,0 +1,31 @@
+{% include 'base/navbar.html' %}
+<div class="container mt-5">
+  <h2>My TODOs</h2>
+  <ul class="list-group">
+    {% for todo in todos %}
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <span>
+        <input
+          type="checkbox"
+          class="form-check-input me-2"
+          {%
+          if
+          todo.completed
+          %}checked{%
+          endif
+          %}
+        />
+        {{ todo.title }}
+      </span>
+      <div>
+        <a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger btn-sm"
+          >Delete</a
+        >
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% include 'base/footer.html' %}

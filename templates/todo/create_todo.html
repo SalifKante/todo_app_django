@@ -1,0 +1,9 @@
+{% include 'base/navbar.html' %}
+<div class="container mt-5">
+  <h2>Create TODO</h2>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Add TODO</button>
+  </form>
+</div>
+{% include 'base/footer.html' %}
